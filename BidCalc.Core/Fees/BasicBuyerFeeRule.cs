@@ -15,6 +15,6 @@ public class BasicBuyerFeeRule
     private static decimal Limit(decimal value, decimal min, decimal max)
     {
         return value < min ? min : (value > max ? max : value);
-    }
+    }   
     
 }
