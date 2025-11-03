@@ -2,7 +2,7 @@ using BidCalc.Core;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// 1) Add CORS policy (dev-only, restrict to Vite origin)
+// Add CORS policy (dev-only, restrict to Vite origin)
 const string DevCors = "DevCors";
 builder.Services.AddCors(options =>
 {
@@ -35,6 +35,7 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+//Apply Cors policy
 app.UseCors(DevCors);
 
 // Configure the HTTP request pipeline.
