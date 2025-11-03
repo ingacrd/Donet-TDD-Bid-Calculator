@@ -2,14 +2,17 @@ using BidCalc.Core;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// 1) Add CORS policy (dev-only, restrict to Vite origin)
+// Add CORS policy (dev-only, restrict to Vite origin)
 const string DevCors = "DevCors";
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(DevCors, policy =>
     {
         policy
-            .WithOrigins("http://localhost:5173") // Vite dev server
+            .WithOrigins(
+                "http://localhost:5173",  
+                "https://localhost:5173"  
+            )
             .AllowAnyHeader()
             .AllowAnyMethod();
     });
@@ -31,6 +34,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+
+//Apply Cors policy
+app.UseCors(DevCors);
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
