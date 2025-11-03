@@ -2,6 +2,19 @@ using BidCalc.Core;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// 1) Add CORS policy (dev-only, restrict to Vite origin)
+const string DevCors = "DevCors";
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(DevCors, policy =>
+    {
+        policy
+            .WithOrigins("http://localhost:5173") // Vite dev server
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
+
 // Add services to the container.
 
 builder.Services.AddControllers();
