@@ -11,8 +11,8 @@ Minimal, clean MVP backend for a Bid Calculation technical challenge, built to s
 ## Live Demo
 
 - **Frontend (Vue 3 + TypeScript):**  
-  https://vue-bid-calculator-frontend.vercel.app
-
+  https://bidcalculatorvue.netlify.app/
+  
 - **Backend Swagger UI (.NET 8 API):**  
   https://bidcalc-api-ingaru-e6b2ejd2agf8haed.canadacentral-01.azurewebsites.net/swagger/index.html
 
