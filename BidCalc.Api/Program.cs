@@ -11,7 +11,9 @@ builder.Services.AddCors(options =>
         policy
             .WithOrigins(
                 "http://localhost:5173",  
-                "https://localhost:5173"  
+                "https://localhost:5173",
+                "https://bidcalculatorvue.netlify.app",
+                "https://bidreactcalc.netlify.app/"
             )
             .AllowAnyHeader()
             .AllowAnyMethod();
@@ -39,11 +41,11 @@ var app = builder.Build();
 app.UseCors(DevCors);
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
+//if (app.Environment.IsDevelopment())
+//{
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+//}
 
 app.UseHttpsRedirection();
 
